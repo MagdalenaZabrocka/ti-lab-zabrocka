@@ -1,0 +1,66 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    gap: 40px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: red;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.card {
+    flex: 1 1 260px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.card--highlight {
+    border: 2px solid orange;
+    background-color: #fff8e8;
+}
+
+.card__price {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.card span {
+    color: orange;
+    font-weight: bold;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table th,
+.price-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.price-table .num {
+    text-align: right;
+}
+
+.price-table thead {
+    background-color: #eee;
+}
