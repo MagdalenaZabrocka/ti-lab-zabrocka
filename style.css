@@ -64,3 +64,22 @@
 .price-table thead {
     background-color: #eee;
 }
+
+@media (max-width: 600px) {
+    .menu {
+        display: none;
+    }
+
+    .menu.menu--open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    body {
+        background-color: white;
+    }
+}
