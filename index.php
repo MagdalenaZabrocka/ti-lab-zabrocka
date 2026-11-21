@@ -27,6 +27,7 @@ $rok = date('Y');
         <a href="#uslugi">Usługi</a>
         <a href="#cennik">Cennik</a>
         <a href="#kontakt">Kontakt</a>
+        <a href="login.php">Panel administratora</a>
     </nav>
 </header>
 <main>
