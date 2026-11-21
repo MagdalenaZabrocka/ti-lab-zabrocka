@@ -1,36 +1,90 @@
 
 <?php
 session_start();
+
+if (isset($_SESSION['uzytkownik'])) {
+    header('Location: admin.php');
+    exit;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Logowanie – Szprycha</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
 
-<h1>Logowanie administratora</h1>
+<body class="bg-light">
 
-<form action="auth.php" method="POST">
-    <label>Login:
-        <input type="text" name="login" required>
-    </label>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">Szprycha</a>
+    </div>
+</nav>
 
-    <br><br>
+<div class="container mt-5">
 
-    <label>Hasło:
-        <input type="password" name="haslo" required>
-    </label>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
 
-    <br><br>
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
 
-    <button type="submit">Zaloguj się</button>
-</form>
+                    <h1 class="h3 text-center mb-4">
+                        Panel administratora
+                    </h1>
 
-<?php if (isset($_GET['blad'])): ?>
-    <p>Nieprawidłowy login lub hasło.</p>
-<?php endif; ?>
+                    <?php if (isset($_GET['blad'])): ?>
+                        <div class="alert alert-danger">
+                            Nieprawidłowy login lub hasło!
+                        </div>
+                    <?php endif; ?>
+
+                    <form action="auth.php" method="POST">
+
+                        <div class="mb-3">
+                            <label for="login" class="form-label">Login</label>
+                            <input
+                                type="text"
+                                id="login"
+                                name="login"
+                                class="form-control"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="haslo" class="form-label">Hasło</label>
+                            <input
+                                type="password"
+                                id="haslo"
+                                name="haslo"
+                                class="form-control"
+                                required
+                            >
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            Zaloguj się
+                        </button>
+
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <a href="index.php">Wróć na stronę główną</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
