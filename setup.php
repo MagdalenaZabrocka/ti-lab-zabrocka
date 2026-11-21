@@ -55,7 +55,7 @@ if ($liczbaUzytkownikow == 0) {
 
     $z->execute([
         'login' => 'admin',
-        'hash' => password_hash('admin', PASSWORD_DEFAULT)
+        'hash' => password_hash('TwojeHaslo', PASSWORD_DEFAULT)
     ]);
 }
 
