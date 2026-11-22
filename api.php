@@ -11,7 +11,37 @@ function odpowiedz(int $kod, array $dane): void {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $uslugi = $pdo->query('SELECT nazwa, cena FROM uslugi')->fetchAll();
+
+    $max = $_GET['max'] ?? '';
+
+    if ($max !== '') {
+
+        if (!is_numeric($max) || $max < 0) {
+            odpowiedz(400, ['blad' => 'Nieprawidłowa wartość max']);
+        }
+
+        $z = $pdo->prepare(
+            'SELECT nazwa, cena, popularnosc
+             FROM uslugi
+             WHERE popularnosc <= :max
+             ORDER BY id'
+        );
+
+        $z->execute([
+            'max' => $max
+        ]);
+
+        $uslugi = $z->fetchAll();
+
+    } else {
+
+        $uslugi = $pdo->query(
+            'SELECT nazwa, cena, popularnosc
+             FROM uslugi ORDER BY id'
+        )->fetchAll();
+
+    }
+
     odpowiedz(200, $uslugi);
 }
 

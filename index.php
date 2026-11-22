@@ -61,6 +61,19 @@ $uslugi = $z->fetchAll();
 
 <section class="cennik">
     <h2>Cennik usług</h2>
+    <label for="poleMax">
+        Maksymalna popularność usługi:
+    </label>
+
+    <input
+        type="number"
+        id="poleMax"
+        min="0"
+        placeholder="Np. 100"
+    >
+
+
+ 
     <p id="status" role="status"></p>
 
     <table class="price-table">
@@ -82,6 +95,17 @@ $uslugi = $z->fetchAll();
     <?php endforeach; ?>
         </tbody>
     </table>
+      <!-- WYKRES POPULARNOŚCI -->
+    <h2 class="mt-4">Wykres popularności usług</h2>
+
+    <svg
+        id="wykres"
+        width="500"
+        height="250"
+        viewBox="0 0 500 250"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+    </svg>
 </section>
 
 </main>
