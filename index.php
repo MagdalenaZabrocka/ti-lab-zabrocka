@@ -61,6 +61,7 @@ $uslugi = $z->fetchAll();
 
 <section class="cennik">
     <h2>Cennik usług</h2>
+    <p id="status" role="status"></p>
 
     <table class="price-table">
         <thead>
@@ -70,7 +71,7 @@ $uslugi = $z->fetchAll();
             </tr>
         </thead>
 
-        <tbody>
+        <tbody id="uslugi-body">
               <?php foreach ($uslugi as $usluga): ?>
         <tr>
             <td><?= htmlspecialchars($usluga['nazwa']) ?></td>

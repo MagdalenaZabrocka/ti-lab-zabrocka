@@ -59,6 +59,7 @@ $uslugi = $stmt->fetchAll();
 
 <section class="cennik">
     <h2>Cennik usług</h2>
+    <p id="status" role="status"></p>
 
     <table class="price-table">
         <thead>
@@ -69,7 +70,8 @@ $uslugi = $stmt->fetchAll();
         </thead>
 
      
-        <tbody>
+        <tbody id="uslugi-body">
+
             <?php foreach ($uslugi as $usluga): ?>
                 <tr>
                     <td>
