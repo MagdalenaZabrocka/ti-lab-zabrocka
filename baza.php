@@ -1,8 +1,15 @@
+
 <?php
-$pdo = new PDO('sqlite:' . __DIR__ . '/szprycha.sqlite'); 
-// MySQL na hostingu: zmienia się tylko ta linijka 
-// new PDO('mysql:host=localhost;dbname=szprycha', 'login', 'haslo'); 
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+try {
+    $pdo = new PDO('sqlite:' . __DIR__ . '/szprycha.sqlite');
+
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    die('Błąd połączenia z bazą danych.');
+}
+
 
 
