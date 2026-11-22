@@ -84,16 +84,10 @@ $uslugi = $z->fetchAll();
             </tr>
         </thead>
 
-        <tbody id="uslugi-body">
-              <?php foreach ($uslugi as $usluga): ?>
-        <tr>
-            <td><?= htmlspecialchars($usluga['nazwa']) ?></td>
-            <td class="num">
-                <?= htmlspecialchars((string)$usluga['cena']) ?> zł
-            </td>
-        </tr>
-    <?php endforeach; ?>
-        </tbody>
+    <tbody id="uslugi-body">
+    </tbody>
+
+
     </table>
       <!-- WYKRES POPULARNOŚCI -->
     <h2 class="mt-4">Wykres popularności usług</h2>
